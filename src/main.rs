@@ -127,7 +127,7 @@ fn benchmark() {
     println!("|{:18}|{:18}|{:18}|","","**Part 1**","**Part 2**");
     println!("|{:-<18}|{:-<17}:|{:-<17}:|","","","");
     let mut total_dur = Duration::new(0,0);
-    for i in 1..25 {
+    for i in 1..26 {
         print!("|day {:<14}", i);
         let solution1 = aoc_2021::solve(i, Part::One);
         if solution1.is_none() {
