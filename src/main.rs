@@ -44,7 +44,10 @@ fn main() {
             .arg(arg!([day] "Day number").required(true))
             .arg(Arg::new("store")
                 .short('s')
-                .help("Store the input as a file in inputs directory")));
+                .help("Store the input as a file in inputs directory")))
+        .subcommand(
+            App::new("bench")
+            .about("Benchmarks all of the puzzles (non-scientifically)"));
 
     let parser = app.get_matches_mut();
 
@@ -54,6 +57,7 @@ fn main() {
         Some(("solve", sub_m)) => { solve(sub_m)},
         Some(("solve-all", sub_m)) => { solve_all(sub_m)},
         Some(("input", sub_m)) => { input(sub_m)},
+        Some(("bench", _)) => { benchmark()},
         _ => { 
             eprintln!("Invalid Command, provide -h for help"); 
             app.print_help().unwrap();
@@ -116,6 +120,34 @@ fn solve_all(_matches: &ArgMatches) {
         println!("### Part 2: {}", duration_to_string(part2_dur));
         println!("### Total: {}", duration_to_string(part1_dur + part2_dur));
     }
+}
+
+fn benchmark() {
+    print!("## Benchmark\n\n");
+    println!("|{:18}|{:18}|{:18}|","","**Part 1**","**Part 2**");
+    println!("|{:-<18}|{:-<17}:|{:-<17}:|","","","");
+    let mut total_dur = Duration::new(0,0);
+    for i in 1..25 {
+        print!("|day {:<14}", i);
+        let solution1 = aoc_2021::solve(i, Part::One);
+        if solution1.is_none() {
+            print!("|{:18}", "");
+        }else {
+            let dur = solution1.unwrap().1;
+            total_dur+=dur;
+            print!("|{:18}", duration_to_string(dur));
+        }
+        let solution2 = aoc_2021::solve(i, Part::Two);
+        if solution2.is_none() {
+            print!("|{:18}|", "");
+        }else {
+            let dur = solution2.unwrap().1;
+            total_dur+=dur;
+            print!("|{:18}|\n", duration_to_string(dur));
+        }
+    }
+    println!("|{:18}|{:18}|{:18}|", "**Total**", duration_to_string(total_dur), "");
+
 }
 
 fn duration_to_string(dur: Duration) -> String {
