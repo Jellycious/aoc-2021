@@ -1,10 +1,10 @@
-## Advent of Code 2021 in Rust!
+## Advent of Code 2021:christmas_tree: in Rust!
 This repository contains my [Advent of Code](https://adventofcode.com/) 2021 Solutions for Rust.
-Runs all solutions **under half a second** on an AMD Ryzen 7 3700X (16) @ 3.600G processor!
+Runs **all** solutions **under half a second** on an AMD Ryzen 7 3700X (16) @ 3.600G processor!
 
 Last year I completed Advent of Code (AOC) in [Haskell](https://github.com/Jellycious/aoc-2020). 
 I really enjoyed the experience and decided to attempt this year as well.
-This time getting my feet wet with [Rust](https://www.rust-lang.org/). 
+This time getting my feet wet with [Rust](https://www.rust-lang.org/):crab:. 
 Up to this point I was not really comfortable with Rust yet.
 I attempted to create a fast (somewhat elegant) solution for every problem, without relying to heavily upon existing external crates.
 At some points my code became pretty verbose and I think this is something I could improve upon.
