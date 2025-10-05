@@ -1,4 +1,4 @@
-## Advent of Code 2021:christmas_tree: in Rust!
+## Advent of Code 2021 🎄 in Rust!
 This repository contains my [Advent of Code](https://adventofcode.com/) 2021 Solutions for Rust.
 Runs **all** solutions **under half a second** on an AMD Ryzen 7 3700X (16) @ 3.600G processor!
 
